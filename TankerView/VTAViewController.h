@@ -10,4 +10,8 @@
 
 @interface VTAViewController : UIViewController
 
+- (IBAction)button:(id)sender;
+- (IBAction)darkenSwitch:(id)sender;
+
+
 @end

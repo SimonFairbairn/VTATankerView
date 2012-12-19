@@ -18,6 +18,11 @@
 		F49C9BF816826379007DE424 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F49C9BF716826379007DE424 /* Default-568h@2x.png */; };
 		F49C9BFB16826379007DE424 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F49C9BF916826379007DE424 /* MainStoryboard.storyboard */; };
 		F49C9BFE16826379007DE424 /* VTAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49C9BFD16826379007DE424 /* VTAViewController.m */; };
+		F49C9C06168263BD007DE424 /* VTATankerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F49C9C05168263BD007DE424 /* VTATankerView.m */; };
+		F49C9C131682659F007DE424 /* bug-boy-small.png in Resources */ = {isa = PBXBuildFile; fileRef = F49C9C0F1682659F007DE424 /* bug-boy-small.png */; };
+		F49C9C141682659F007DE424 /* bug-boy-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F49C9C101682659F007DE424 /* bug-boy-small@2x.png */; };
+		F49C9C151682659F007DE424 /* bug-boy.png in Resources */ = {isa = PBXBuildFile; fileRef = F49C9C111682659F007DE424 /* bug-boy.png */; };
+		F49C9C161682659F007DE424 /* bug-boy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F49C9C121682659F007DE424 /* bug-boy@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +42,12 @@
 		F49C9BFA16826379007DE424 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		F49C9BFC16826379007DE424 /* VTAViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VTAViewController.h; sourceTree = "<group>"; };
 		F49C9BFD16826379007DE424 /* VTAViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VTAViewController.m; sourceTree = "<group>"; };
+		F49C9C04168263BD007DE424 /* VTATankerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTATankerView.h; sourceTree = "<group>"; };
+		F49C9C05168263BD007DE424 /* VTATankerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTATankerView.m; sourceTree = "<group>"; };
+		F49C9C0F1682659F007DE424 /* bug-boy-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bug-boy-small.png"; sourceTree = "<group>"; };
+		F49C9C101682659F007DE424 /* bug-boy-small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bug-boy-small@2x.png"; sourceTree = "<group>"; };
+		F49C9C111682659F007DE424 /* bug-boy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bug-boy.png"; sourceTree = "<group>"; };
+		F49C9C121682659F007DE424 /* bug-boy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bug-boy@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,11 +94,17 @@
 		F49C9BE716826379007DE424 /* TankerView */ = {
 			isa = PBXGroup;
 			children = (
+				F49C9C0F1682659F007DE424 /* bug-boy-small.png */,
+				F49C9C101682659F007DE424 /* bug-boy-small@2x.png */,
+				F49C9C111682659F007DE424 /* bug-boy.png */,
+				F49C9C121682659F007DE424 /* bug-boy@2x.png */,
 				F49C9BF016826379007DE424 /* VTAAppDelegate.h */,
 				F49C9BF116826379007DE424 /* VTAAppDelegate.m */,
 				F49C9BF916826379007DE424 /* MainStoryboard.storyboard */,
 				F49C9BFC16826379007DE424 /* VTAViewController.h */,
 				F49C9BFD16826379007DE424 /* VTAViewController.m */,
+				F49C9C04168263BD007DE424 /* VTATankerView.h */,
+				F49C9C05168263BD007DE424 /* VTATankerView.m */,
 				F49C9BE816826379007DE424 /* Supporting Files */,
 			);
 			path = TankerView;
@@ -164,6 +181,10 @@
 				F49C9BF616826379007DE424 /* Default@2x.png in Resources */,
 				F49C9BF816826379007DE424 /* Default-568h@2x.png in Resources */,
 				F49C9BFB16826379007DE424 /* MainStoryboard.storyboard in Resources */,
+				F49C9C131682659F007DE424 /* bug-boy-small.png in Resources */,
+				F49C9C141682659F007DE424 /* bug-boy-small@2x.png in Resources */,
+				F49C9C151682659F007DE424 /* bug-boy.png in Resources */,
+				F49C9C161682659F007DE424 /* bug-boy@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +198,7 @@
 				F49C9BEE16826379007DE424 /* main.m in Sources */,
 				F49C9BF216826379007DE424 /* VTAAppDelegate.m in Sources */,
 				F49C9BFE16826379007DE424 /* VTAViewController.m in Sources */,
+				F49C9C06168263BD007DE424 /* VTATankerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
