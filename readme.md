@@ -16,6 +16,12 @@ Quickly and easily add arbitrary views to a sliding pop up.
 **Set Sail**  
 `[self.imageTanker show];`
 
+### Usage
+
+Just need to include the `VTATankerView.h` and `VTATankerView.m` files in your project, then include the `VTATankerView.h` in your viewController.
+
+Check out the sample project for more details.
+
 ### License
 
 MIT License.
