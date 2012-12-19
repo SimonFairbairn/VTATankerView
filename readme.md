@@ -10,10 +10,15 @@ Quickly and easily add arbitrary views to a sliding pop up.
 `self.imageTanker.shouldDarkenScreen = YES;`
 
 **Load 'er up**  
-`self.imageTanker.content = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bug-boy"]];`
+`self.imageTanker.content = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bug-boy"]];`  
+`[self.view addSubview:self.imageTanker];`
 
 **Set Sail**  
-`[self.view addSubview:self.imageTanker];`
+`[self.imageTanker show];`
+
+### License
+
+MIT License.
 
 ### Screenshots
 
