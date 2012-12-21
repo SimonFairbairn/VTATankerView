@@ -16,6 +16,16 @@ Quickly and easily add arbitrary views to a sliding pop up.
 **Set Sail**  
 `[self.imageTanker show];`
 
+
+### Swipe Option
+
+You can switch on a swipe mode, which automatically adds a little grabber image to the view and allows the user to pull it up or down manually.
+
+Simply set `self.imageTanker.shouldRespondToSwipe = YES` and it takes care of the rest.
+
+I've included a grabber image, but you can use your own (just make sure it's called "grabber.png" and that it's no more than 20px high);
+
+
 ### Usage
 
 Just need to include the `VTATankerView.h` and `VTATankerView.m` files in your project, then include the `VTATankerView.h` in your viewController.
