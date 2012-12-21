@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F434C0811683D6F6007AD797 /* VTAContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F434C0801683D6F6007AD797 /* VTAContainerView.m */; };
 		F48CEA1C16827F2A0081911E /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = F48CEA1B16827F2A0081911E /* readme.md */; };
 		F49C9BE216826379007DE424 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F49C9BE116826379007DE424 /* UIKit.framework */; };
 		F49C9BE416826379007DE424 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F49C9BE316826379007DE424 /* Foundation.framework */; };
@@ -27,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F434C07F1683D6F6007AD797 /* VTAContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTAContainerView.h; sourceTree = "<group>"; };
+		F434C0801683D6F6007AD797 /* VTAContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTAContainerView.m; sourceTree = "<group>"; };
 		F48CEA1B16827F2A0081911E /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.md; sourceTree = "<group>"; };
 		F49C9BDD16826379007DE424 /* TankerView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TankerView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F49C9BE116826379007DE424 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -109,6 +112,8 @@
 				F49C9C04168263BD007DE424 /* VTATankerView.h */,
 				F49C9C05168263BD007DE424 /* VTATankerView.m */,
 				F49C9BE816826379007DE424 /* Supporting Files */,
+				F434C07F1683D6F6007AD797 /* VTAContainerView.h */,
+				F434C0801683D6F6007AD797 /* VTAContainerView.m */,
 			);
 			path = TankerView;
 			sourceTree = "<group>";
@@ -203,6 +208,7 @@
 				F49C9BF216826379007DE424 /* VTAAppDelegate.m in Sources */,
 				F49C9BFE16826379007DE424 /* VTAViewController.m in Sources */,
 				F49C9C06168263BD007DE424 /* VTATankerView.m in Sources */,
+				F434C0811683D6F6007AD797 /* VTAContainerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,17 +1,16 @@
 //
-//  VTAViewController.h
+//  VTAContainerView.h
 //  TankerView
 //
-//  Created by Simon Fairbairn on 19/12/2012.
+//  Created by Simon Fairbairn on 20/12/2012.
 //  Copyright (c) 2012 Simon Fairbairn. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface VTAViewController : UIViewController
+@interface VTAContainerView : UIView
 
-- (IBAction)button:(id)sender;
-- (IBAction)darkenSwitch:(id)sender;
-
+@property CGRect showBounds;
+@property CGRect hideBounds;
 
 @end

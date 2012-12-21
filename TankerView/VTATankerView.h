@@ -23,7 +23,7 @@
 @interface VTATankerView : UIView
 
 @property BOOL shouldDarkenScreen;
-@property BOOL shouldRespondToSwipe;
+@property (nonatomic) BOOL shouldRespondToSwipe;
 @property BOOL tapToHide;
 @property (nonatomic) BOOL shouldStretchContent;
 

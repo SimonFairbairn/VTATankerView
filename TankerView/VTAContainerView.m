@@ -1,85 +1,93 @@
 //
-//  VTAViewController.m
+//  VTAContainerView.m
 //  TankerView
 //
-//  Created by Simon Fairbairn on 19/12/2012.
+//  Created by Simon Fairbairn on 20/12/2012.
 //  Copyright (c) 2012 Simon Fairbairn. All rights reserved.
 //
 
 #import "VTAContainerView.h"
 #import "VTATankerView.h"
 
+@interface VTAContainerView()
 
-@interface VTAContainerView ()
-
-@property (nonatomic, strong) VTATankerView *imageTanker;
-@property (nonatomic, strong) VTATankerView *pickerTanker;
-
-@property (nonatomic, strong) UIImageView *imageView;
-@property (nonatomic, strong) UIDatePicker *datePicker;
-
+@property float difference;
+@property float full;
+@property float empty;
 
 @end
 
 @implementation VTAContainerView
 
-- (void)viewDidLoad
+- (id)initWithFrame:(CGRect)frame
 {
-    [super viewDidLoad];
-    
-    // Grab a new image view with an image
-    self.imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bug-boy"]];
-
-    
-    
-    // Grab a tanker
-    self.imageTanker = [VTATankerView newTanker];
-    // Configure the tanker
-    self.imageTanker.shouldStretchContent = NO;
-    // Load 'er up
-    self.imageTanker.content = self.imageView;
-    // Set sail
-    [self.view addSubview:self.imageTanker];
-    
-	// Something more complicated? A DatePicker perhaps?
-    self.datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 0, 320, 216)];
-    self.datePicker.date = [NSDate date];
-    self.datePicker.datePickerMode = UIDatePickerModeDate;
-
-    // Grab a tanker
-    self.pickerTanker = [VTATankerView newTanker];
-    // Load the old girl up
-    self.pickerTanker.content = self.datePicker;
-    // Set sail
-    [self.view addSubview:self.pickerTanker];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (IBAction)button:(UIButton *)sender {
-    if ( sender.tag == 1 ) {
-        
-        if ( self.imageTanker.containerViewActive == YES ) {
-            [self.imageTanker hide];
-        } else {
-            [self.imageTanker show];
-        }
-    } else {
-        
-        if ( self.pickerTanker.containerViewActive == YES ) {
-            [self.pickerTanker hide];
-        } else {
-            [self.pickerTanker show];
-        }
+    self = [super initWithFrame:frame];
+    if (self) {
+        // Initialization code
     }
+    return self;
 }
 
-- (IBAction)darkenSwitch:(UISwitch *)sender {
-    self.imageTanker.shouldDarkenScreen = sender.isOn;
-    self.pickerTanker.shouldDarkenScreen = sender.isOn;
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    self.difference = self.superview.superview.bounds.size.height - self.bounds.size.height;
+    self.full = self.superview.superview.bounds.size.height - self.difference;
+    self.empty = self.superview.superview.bounds.size.height - self.difference;
+	
+    
+
 }
+
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+	UITouch *touch = [touches anyObject];
+	CGPoint touchPoint = [touch locationInView:self.superview];
+
+    if ( [(VTATankerView *)self.superview shouldRespondToSwipe] == NO ) {
+        return;
+    }
+
+
+    
+    if ( touchPoint.y >= self.superview.superview.bounds.size.height - self.frame.size.height && touchPoint.y <= self.superview.superview.bounds.size.height - 20 ) {
+        self.frame = CGRectMake(self.frame.origin.x,  touchPoint.y, self.frame.size.width, self.frame.size.height);
+        
+
+
+        
+        
+        self.superview.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:(1 - (touchPoint.y - self.difference )/ self.empty  ) * 0.8];
+    } else if ( touchPoint.y <= self.superview.superview.bounds.size.height - self.frame.size.height  ) {
+        self.superview.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.8];
+
+        self.frame = CGRectMake(self.frame.origin.x, self.superview.superview.bounds.size.height - self.frame.size.height, self.frame.size.width, self.frame.size.height);
+    }
+    
+}
+
+
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+    CGPoint touchPoint = [touch locationInView:self.superview];
+    
+    NSLog(@"Height: %f", self.bounds.size.height);
+    NSLog(@"Superview: %f", self.superview.superview.bounds.size.height);
+    NSLog(@"Touchpoint Y: %f", ( touchPoint.y - self.difference ) / self.bounds.size.height);
+    NSLog(@"Difference / 2: %f", self.bounds.size.height / 2);
+    
+    if ( ( 1 - ( touchPoint.y - self.difference ) / self.bounds.size.height) > 0.5 ) {
+        [(VTATankerView *)self.superview show];
+    } else {
+        [(VTATankerView *)self.superview hide];
+    }
+
+}
+
+/*
+// Only override drawRect: if you perform custom drawing.
+// An empty implementation adversely affects performance during animation.
+- (void)drawRect:(CGRect)rect
+{
+    // Drawing code
+}
+*/
+
 @end

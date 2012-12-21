@@ -48,6 +48,7 @@
 
     // Grab a tanker
     self.pickerTanker = [VTATankerView newTanker];
+    self.pickerTanker.shouldRespondToSwipe = YES;
     // Load the old girl up
     self.pickerTanker.content = self.datePicker;
     // Set sail

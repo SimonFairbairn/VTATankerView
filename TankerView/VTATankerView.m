@@ -19,10 +19,11 @@
 */
 
 #import "VTATankerView.h"
+#import "VTAContainerView.h"
 
 @interface VTATankerView()
 
-@property (nonatomic, strong) UIView *contentContainer;
+@property (nonatomic, strong) VTAContainerView *contentContainer;
 @property BOOL containerViewActive;
 
 
@@ -56,13 +57,13 @@
     
     // Set defaults
     self.shouldDarkenScreen = YES;
-    self.shouldRespondToSwipe = YES;
+    self.shouldRespondToSwipe = NO;
     self.tapToHide = YES;
     self.containerViewActive = NO;
     self.shouldStretchContent = YES;
     
     // Create subviews
-    self.contentContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 50, 200)];
+    self.contentContainer = [[VTAContainerView alloc] initWithFrame:CGRectMake(0, 0, 50, 200)];
     self.contentContainer.backgroundColor = [UIColor blackColor];
     self.contentContainer.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
@@ -96,12 +97,21 @@
     
     
     self.contentContainer.frame =  [self calculateHideBounds];
+    
+    if ( self.shouldRespondToSwipe == YES ) {
+        
+        content.frame = CGRectMake(content.frame.origin.x, content.frame.origin.y + 20, content.frame.size.width , content.frame.size.height);
+        
+        
+    }
+    
     [self.contentContainer addSubview:content];
     
-    
-    
+}
 
-    
+-(void)setShouldRespondToSwipe:(BOOL)shouldRespondToSwipe {
+    _shouldRespondToSwipe = shouldRespondToSwipe;
+    self.contentContainer.backgroundColor = [UIColor redColor];
 }
 
 
@@ -128,6 +138,8 @@
 #pragma mark - User Interaction
 
 -(BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
+    
+
     for (UIView *view in self.subviews) {
         if (!view.hidden && view.userInteractionEnabled && [view pointInside:[self convertPoint:point toView:view] withEvent:event])
             return YES;
@@ -159,6 +171,9 @@
 
         self.contentContainer.frame = [self calculateShowBounds];
         self.containerViewActive = YES;
+        NSLog(@"-------After Show-------");
+        NSLog(@"Superview: %@", NSStringFromCGRect(self.bounds));
+        NSLog(@"Frame: %@", NSStringFromCGRect(self.contentContainer.frame));
     }];
 
 
@@ -182,12 +197,26 @@
 }
 
 -(CGRect)calculateShowBounds {
-    return CGRectMake(0, self.superview.bounds.size.height - self.content.bounds.size.height - self.content.frame.origin.y, self.superview.bounds.size.width, self.content.bounds.size.height + self.content.frame.origin.y);
+
+    self.contentContainer.showBounds = CGRectMake(0, self.superview.bounds.size.height - self.content.bounds.size.height - self.content.frame.origin.y, self.superview.bounds.size.width, self.content.bounds.size.height + self.content.frame.origin.y);
+
+    return self.contentContainer.showBounds;
+    
+
 }
 -(CGRect)calculateHideBounds {
 
     
-    return CGRectMake(self.bounds.origin.x, self.superview.bounds.size.height, self.superview.bounds.size.width, self.content.bounds.size.height + self.content.frame.origin.y);
+    
+    if ( self.shouldRespondToSwipe == YES ) {
+
+        self.contentContainer.hideBounds = CGRectMake(self.bounds.origin.x, self.superview.bounds.size.height - 20, self.superview.bounds.size.width, self.content.bounds.size.height + self.content.frame.origin.y);
+
+    } else {
+        self.contentContainer.hideBounds =  CGRectMake(self.bounds.origin.x, self.superview.bounds.size.height, self.superview.bounds.size.width, self.content.bounds.size.height + self.content.frame.origin.y);
+    }
+    
+    return self.contentContainer.hideBounds;
     
 }
 
