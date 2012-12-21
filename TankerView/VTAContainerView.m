@@ -52,11 +52,13 @@
         
 
 
-        
-        
-        self.superview.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:(1 - (touchPoint.y - self.difference )/ self.empty  ) * 0.8];
+        if ( [(VTATankerView *)self.superview shouldDarkenScreen] == YES ) {
+                self.superview.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:(1 - (touchPoint.y - self.difference )/ self.empty  ) * 0.8];
+        }
     } else if ( touchPoint.y <= self.superview.superview.bounds.size.height - self.frame.size.height  ) {
-        self.superview.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.8];
+         if ( [(VTATankerView *)self.superview shouldDarkenScreen] == YES ) {
+             self.superview.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.8];
+         }
 
         self.frame = CGRectMake(self.frame.origin.x, self.superview.superview.bounds.size.height - self.frame.size.height, self.frame.size.width, self.frame.size.height);
     }
@@ -68,11 +70,6 @@
     UITouch *touch = [touches anyObject];
     CGPoint touchPoint = [touch locationInView:self.superview];
     
-    NSLog(@"Height: %f", self.bounds.size.height);
-    NSLog(@"Superview: %f", self.superview.superview.bounds.size.height);
-    NSLog(@"Touchpoint Y: %f", ( touchPoint.y - self.difference ) / self.bounds.size.height);
-    NSLog(@"Difference / 2: %f", self.bounds.size.height / 2);
-    
     if ( ( 1 - ( touchPoint.y - self.difference ) / self.bounds.size.height) > 0.5 ) {
         [(VTATankerView *)self.superview show];
     } else {
@@ -81,13 +78,6 @@
 
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
+
 
 @end
