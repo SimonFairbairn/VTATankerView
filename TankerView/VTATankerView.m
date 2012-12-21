@@ -207,9 +207,9 @@
 
 -(CGRect)calculateShowBounds {
 
-    self.contentContainer.showBounds = CGRectMake(0, self.superview.bounds.size.height - self.content.bounds.size.height - self.content.frame.origin.y, self.superview.bounds.size.width, self.content.bounds.size.height + self.content.frame.origin.y);
+    return CGRectMake(0, self.superview.bounds.size.height - self.content.bounds.size.height - self.content.frame.origin.y, self.superview.bounds.size.width, self.content.bounds.size.height + self.content.frame.origin.y);
 
-    return self.contentContainer.showBounds;
+
     
 
 }
@@ -219,13 +219,13 @@
     
     if ( self.shouldRespondToSwipe == YES ) {
 
-        self.contentContainer.hideBounds = CGRectMake(self.bounds.origin.x, self.superview.bounds.size.height - 20, self.superview.bounds.size.width, self.content.bounds.size.height + self.content.frame.origin.y);
+        return CGRectMake(self.bounds.origin.x, self.superview.bounds.size.height - 20, self.superview.bounds.size.width, self.content.bounds.size.height + self.content.frame.origin.y);
 
     } else {
-        self.contentContainer.hideBounds =  CGRectMake(self.bounds.origin.x, self.superview.bounds.size.height, self.superview.bounds.size.width, self.content.bounds.size.height + self.content.frame.origin.y);
+        return CGRectMake(self.bounds.origin.x, self.superview.bounds.size.height, self.superview.bounds.size.width, self.content.bounds.size.height + self.content.frame.origin.y);
     }
     
-    return self.contentContainer.hideBounds;
+
     
 }
 
