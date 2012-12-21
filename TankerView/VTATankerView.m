@@ -99,6 +99,13 @@
     self.contentContainer.frame =  [self calculateHideBounds];
     
     if ( self.shouldRespondToSwipe == YES ) {
+        UIImageView *grabber = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"grabber.png"]];
+        grabber.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+        grabber.frame = CGRectMake((self.contentContainer.frame.size.width / 2) - (grabber.bounds.size.width / 2 ), 0, grabber.bounds.size.width, grabber.bounds.size.height);
+        
+        
+        [self.contentContainer addSubview:grabber];
+        
         
         content.frame = CGRectMake(content.frame.origin.x, content.frame.origin.y + 20, content.frame.size.width , content.frame.size.height);
         
@@ -111,7 +118,7 @@
 
 -(void)setShouldRespondToSwipe:(BOOL)shouldRespondToSwipe {
     _shouldRespondToSwipe = shouldRespondToSwipe;
-    self.contentContainer.backgroundColor = [UIColor redColor];
+    self.contentContainer.backgroundColor = [UIColor clearColor];
 }
 
 
