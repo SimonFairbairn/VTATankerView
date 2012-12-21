@@ -23,7 +23,7 @@ You can switch on a swipe mode, which automatically adds a little grabber image 
 
 Simply set `self.imageTanker.shouldRespondToSwipe = YES` and it takes care of the rest.
 
-I've included a grabber image, but you can use your own (just make sure it's called "grabber.png" and that it's no more than 20px high).
+I've included a grabber image which you're free to use or you can use your own (just make sure it's called "grabber.png" or "grabber@2x.png" and that it's no more than 20 points [20px or 40px] high).
 
 ![Swipe view][3]
 
