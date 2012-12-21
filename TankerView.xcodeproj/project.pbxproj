@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		F434C0811683D6F6007AD797 /* VTAContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F434C0801683D6F6007AD797 /* VTAContainerView.m */; };
-		F434C0891683F3E3007AD797 /* grabber.png in Resources */ = {isa = PBXBuildFile; fileRef = F434C0871683F3E3007AD797 /* grabber.png */; };
-		F434C08A1683F3E3007AD797 /* grabber@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F434C0881683F3E3007AD797 /* grabber@2x.png */; };
+		F434C08D1683F964007AD797 /* grabber@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F434C08B1683F964007AD797 /* grabber@2x.png */; };
+		F434C08E1683F964007AD797 /* grabber.png in Resources */ = {isa = PBXBuildFile; fileRef = F434C08C1683F964007AD797 /* grabber.png */; };
 		F48CEA1C16827F2A0081911E /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = F48CEA1B16827F2A0081911E /* readme.md */; };
 		F49C9BE216826379007DE424 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F49C9BE116826379007DE424 /* UIKit.framework */; };
 		F49C9BE416826379007DE424 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F49C9BE316826379007DE424 /* Foundation.framework */; };
@@ -32,8 +32,8 @@
 /* Begin PBXFileReference section */
 		F434C07F1683D6F6007AD797 /* VTAContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTAContainerView.h; sourceTree = "<group>"; };
 		F434C0801683D6F6007AD797 /* VTAContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTAContainerView.m; sourceTree = "<group>"; };
-		F434C0871683F3E3007AD797 /* grabber.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = grabber.png; path = ../../../../Desktop/grabber.png; sourceTree = "<group>"; };
-		F434C0881683F3E3007AD797 /* grabber@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "grabber@2x.png"; path = "../../../../Desktop/grabber@2x.png"; sourceTree = "<group>"; };
+		F434C08B1683F964007AD797 /* grabber@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grabber@2x.png"; sourceTree = "<group>"; };
+		F434C08C1683F964007AD797 /* grabber.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grabber.png; sourceTree = "<group>"; };
 		F48CEA1B16827F2A0081911E /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.md; sourceTree = "<group>"; };
 		F49C9BDD16826379007DE424 /* TankerView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TankerView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F49C9BE116826379007DE424 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -104,8 +104,8 @@
 		F49C9BE716826379007DE424 /* TankerView */ = {
 			isa = PBXGroup;
 			children = (
-				F434C0871683F3E3007AD797 /* grabber.png */,
-				F434C0881683F3E3007AD797 /* grabber@2x.png */,
+				F434C08B1683F964007AD797 /* grabber@2x.png */,
+				F434C08C1683F964007AD797 /* grabber.png */,
 				F49C9C0F1682659F007DE424 /* bug-boy-small.png */,
 				F49C9C101682659F007DE424 /* bug-boy-small@2x.png */,
 				F49C9C111682659F007DE424 /* bug-boy.png */,
@@ -200,8 +200,8 @@
 				F49C9C151682659F007DE424 /* bug-boy.png in Resources */,
 				F49C9C161682659F007DE424 /* bug-boy@2x.png in Resources */,
 				F48CEA1C16827F2A0081911E /* readme.md in Resources */,
-				F434C0891683F3E3007AD797 /* grabber.png in Resources */,
-				F434C08A1683F3E3007AD797 /* grabber@2x.png in Resources */,
+				F434C08D1683F964007AD797 /* grabber@2x.png in Resources */,
+				F434C08E1683F964007AD797 /* grabber.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
