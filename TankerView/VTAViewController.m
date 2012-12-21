@@ -17,6 +17,7 @@
 
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UIDatePicker *datePicker;
+@property (nonatomic, strong) UIPickerView *picker;
 
 
 @end
@@ -31,7 +32,6 @@
     self.imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bug-boy"]];
 
     
-    
     // Grab a tanker
     self.imageTanker = [VTATankerView newTanker];
     // Configure the tanker
@@ -42,15 +42,20 @@
     [self.view addSubview:self.imageTanker];
     
 	// Something more complicated? A DatePicker perhaps?
-    self.datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 0, 320, 216)];
-    self.datePicker.date = [NSDate date];
-    self.datePicker.datePickerMode = UIDatePickerModeDate;
+//    self.datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 0, 320, 216)];
+//    self.datePicker.date = [NSDate date];
+//    self.datePicker.datePickerMode = UIDatePickerModeDate;
 
+    self.picker = [[UIPickerView alloc] init];
+    self.picker.delegate = self;
+    self.picker.dataSource = self;
+    
+    
     // Grab a tanker
     self.pickerTanker = [VTATankerView newTanker];
     self.pickerTanker.shouldRespondToSwipe = YES;
     // Load the old girl up
-    self.pickerTanker.content = self.datePicker;
+    self.pickerTanker.content = self.picker;
     // Set sail
     [self.view addSubview:self.pickerTanker];
 }
@@ -83,4 +88,14 @@
     self.imageTanker.shouldDarkenScreen = sender.isOn;
     self.pickerTanker.shouldDarkenScreen = sender.isOn;
 }
+
+
+
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    return 1;
+}
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
+}
+
 @end

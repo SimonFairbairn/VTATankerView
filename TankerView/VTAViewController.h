@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VTAViewController : UIViewController
+@interface VTAViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
 - (IBAction)button:(id)sender;
 - (IBAction)darkenSwitch:(id)sender;

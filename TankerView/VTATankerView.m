@@ -23,7 +23,7 @@
 
 @interface VTATankerView()
 
-@property (nonatomic, strong) VTAContainerView *contentContainer;
+@property (nonatomic, weak) UIView *contentContainer;
 @property BOOL containerViewActive;
 
 
@@ -63,7 +63,8 @@
     self.shouldStretchContent = YES;
     
     // Create subviews
-    self.contentContainer = [[VTAContainerView alloc] initWithFrame:CGRectMake(0, 0, 50, 200)];
+    VTAContainerView *container = [[VTAContainerView alloc] initWithFrame:CGRectMake(0, 0, 50, 200)];
+    self.contentContainer = container;
     self.contentContainer.backgroundColor = [UIColor blackColor];
     self.contentContainer.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
@@ -107,7 +108,7 @@
         [self.contentContainer addSubview:grabber];
         
         
-        content.frame = CGRectMake(content.frame.origin.x, content.frame.origin.y + 20, content.frame.size.width , content.frame.size.height);
+        _content.frame = CGRectMake(_content.frame.origin.x, _content.frame.origin.y + 20, _content.frame.size.width , _content.frame.size.height);
         
         
     }
@@ -161,11 +162,14 @@
 
 -(void)didMoveToSuperview {
 
-    
-    self.frame = CGRectMake(0, self.superview.bounds.origin.y, self.superview.bounds.size.width, self.superview.bounds.size.height + self.contentContainer.frame.size.height);
-
-
-    self.contentContainer.frame =  [self calculateHideBounds];
+    if ( self.superview ) {
+        self.frame = CGRectMake(0, self.superview.bounds.origin.y, self.superview.bounds.size.width, self.superview.bounds.size.height + self.contentContainer.frame.size.height);
+        
+        
+        self.contentContainer.frame =  [self calculateHideBounds];
+        
+        
+    }
 
 }
 
@@ -178,9 +182,7 @@
 
         self.contentContainer.frame = [self calculateShowBounds];
         self.containerViewActive = YES;
-        NSLog(@"-------After Show-------");
-        NSLog(@"Superview: %@", NSStringFromCGRect(self.bounds));
-        NSLog(@"Frame: %@", NSStringFromCGRect(self.contentContainer.frame));
+
     }];
 
 
