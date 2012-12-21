@@ -46,4 +46,4 @@ MIT License.
 
 [1]: http://simonfairbairn.github.com/images/picker-view.png
 [2]: http://simonfairbairn.github.com/images/image-view.png
-[2]: http://simonfairbairn.github.com/images/swipe-view.png
+[3]: http://simonfairbairn.github.com/images/slide-view.png
