@@ -161,7 +161,7 @@
 }
 
 -(void)didMoveToSuperview {
-
+    self.hidden = YES;
     if ( self.superview ) {
         self.frame = CGRectMake(0, self.superview.bounds.origin.y, self.superview.bounds.size.width, self.superview.bounds.size.height + self.contentContainer.frame.size.height);
         
@@ -174,6 +174,7 @@
 }
 
 -(void)show {
+    self.hidden = NO;
     
     [UIView animateWithDuration:0.2 animations:^{
         if ( self.shouldDarkenScreen == YES ) {
@@ -189,12 +190,15 @@
 }
 
 -(void) hide {
+
     [UIView animateWithDuration:0.2 animations:^{
         if ( self.shouldDarkenScreen == YES ) {
             self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
         }
         self.contentContainer.frame = [self calculateHideBounds];
         self.containerViewActive = NO;
+    } completion:^(BOOL finished) {
+            self.hidden = YES;
     }];
     [self.delegate VTATankerViewDidDisappear:self];
 }
