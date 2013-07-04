@@ -196,6 +196,7 @@
         self.contentContainer.frame = [self calculateHideBounds];
         self.containerViewActive = NO;
     }];
+    [self.delegate VTATankerViewDidDisappear:self];
 }
 
 -(void)dismiss {

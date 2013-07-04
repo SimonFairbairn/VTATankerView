@@ -20,6 +20,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class VTATankerView;
+
+@protocol VTATankerViewDelegate <NSObject>
+
+-(void)VTATankerViewDidDisappear:(VTATankerView *)view;
+
+@end
+
 @interface VTATankerView : UIView
 
 @property BOOL shouldDarkenScreen;
@@ -31,6 +39,7 @@
 @property (readonly) BOOL containerViewActive;
 @property (nonatomic, weak) UIView *content;
 
+@property (nonatomic, weak) id delegate;
 
 +(VTATankerView *)newTanker;
 
