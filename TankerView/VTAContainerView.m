@@ -29,15 +29,16 @@
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [super touchesBegan:touches withEvent:event];
     self.difference = self.superview.superview.bounds.size.height - self.bounds.size.height;
     self.full = self.superview.superview.bounds.size.height - self.difference;
     self.empty = self.superview.superview.bounds.size.height - self.difference;
-	
     
 
 }
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    [super touchesMoved:touches withEvent:event];
 	UITouch *touch = [touches anyObject];
 	CGPoint touchPoint = [touch locationInView:self.superview];
 
@@ -67,6 +68,7 @@
 
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    [super touchesEnded:touches withEvent:event];
     UITouch *touch = [touches anyObject];
     CGPoint touchPoint = [touch locationInView:self.superview];
     

@@ -119,6 +119,8 @@
 
 -(void)setShouldRespondToSwipe:(BOOL)shouldRespondToSwipe {
     _shouldRespondToSwipe = shouldRespondToSwipe;
+    self.frame = [self calculateHideBounds];
+    self.hidden = NO;
     self.contentContainer.backgroundColor = [UIColor clearColor];
 }
 
@@ -161,7 +163,10 @@
 }
 
 -(void)didMoveToSuperview {
-    self.hidden = YES;
+    if ( !self.shouldRespondToSwipe ) {
+        self.hidden = YES;
+    }
+
     if ( self.superview ) {
         self.frame = CGRectMake(0, self.superview.bounds.origin.y, self.superview.bounds.size.width, self.superview.bounds.size.height + self.contentContainer.frame.size.height);
         
@@ -198,7 +203,10 @@
         self.contentContainer.frame = [self calculateHideBounds];
         self.containerViewActive = NO;
     } completion:^(BOOL finished) {
+        if ( !self.shouldRespondToSwipe ) {
             self.hidden = YES;
+        }
+        
     }];
     [self.delegate VTATankerViewDidDisappear:self];
 }
@@ -224,7 +232,10 @@
     
     if ( self.shouldRespondToSwipe == YES ) {
 
-        return CGRectMake(self.bounds.origin.x, self.superview.bounds.size.height - 20, self.superview.bounds.size.width, self.content.bounds.size.height + self.content.frame.origin.y);
+        CGRect newBounds = CGRectMake(self.bounds.origin.x, self.superview.bounds.size.height - 20, self.superview.bounds.size.width, self.content.bounds.size.height + self.content.frame.origin.y);
+        
+        return newBounds;
+
 
     } else {
         return CGRectMake(self.bounds.origin.x, self.superview.bounds.size.height, self.superview.bounds.size.width, self.content.bounds.size.height + self.content.frame.origin.y);
