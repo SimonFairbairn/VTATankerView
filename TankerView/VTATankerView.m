@@ -208,7 +208,10 @@
         }
         
     }];
-    [self.delegate VTATankerViewDidDisappear:self];
+    if ( self.delegate ) {
+        [self.delegate VTATankerViewDidDisappear:self];        
+    }
+
 }
 
 -(void)dismiss {
