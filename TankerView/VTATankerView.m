@@ -208,7 +208,7 @@
         }
         
     }];
-    if ( self.delegate ) {
+    if ( self.delegate && [self.delegate respondsToSelector:@selector(VTATankerViewDidDisappear:)] ) {
         [self.delegate VTATankerViewDidDisappear:self];        
     }
 
