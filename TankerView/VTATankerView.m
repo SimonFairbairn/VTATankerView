@@ -65,7 +65,7 @@
     // Create subviews
     VTAContainerView *container = [[VTAContainerView alloc] initWithFrame:CGRectMake(0, 0, 50, 200)];
     self.contentContainer = container;
-    self.contentContainer.backgroundColor = [UIColor blackColor];
+    self.contentContainer.backgroundColor = [UIColor clearColor];
     self.contentContainer.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
     [self addSubview:self.contentContainer];
