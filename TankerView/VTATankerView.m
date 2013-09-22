@@ -23,7 +23,7 @@
 
 @interface VTATankerView()
 
-@property (nonatomic, weak) UIView *contentContainer;
+@property (nonatomic, strong) UIView *contentContainer;
 @property BOOL containerViewActive;
 
 
@@ -65,7 +65,13 @@
     // Create subviews
     VTAContainerView *container = [[VTAContainerView alloc] initWithFrame:CGRectMake(0, 0, 50, 200)];
     self.contentContainer = container;
-    self.contentContainer.backgroundColor = [UIColor clearColor];
+    
+    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+        self.contentContainer.backgroundColor = [UIColor blackColor];
+    } else {
+        self.contentContainer.backgroundColor = [UIColor whiteColor];
+    }
+
     self.contentContainer.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
     [self addSubview:self.contentContainer];
