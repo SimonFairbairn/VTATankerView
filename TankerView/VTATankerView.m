@@ -113,10 +113,7 @@
         
         [self.contentContainer addSubview:grabber];
         
-        
         _content.frame = CGRectMake(_content.frame.origin.x, _content.frame.origin.y + 20, _content.frame.size.width , _content.frame.size.height);
-        
-        
     }
     
     [self.contentContainer addSubview:content];
